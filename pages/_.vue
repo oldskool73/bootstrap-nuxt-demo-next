@@ -10,9 +10,6 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
-import {ACTIONS} from '~/store/storyblok'
-
 const loadData = function({api, cacheVersion, errorCallback, version, path}) {
   return api.get(`cdn/stories/${path}`, {
     version,
@@ -67,33 +64,29 @@ export default {
   data () {
     return { story: { content: {} } }
   },
-  methods: {
-    ...mapActions('storyblok', {
-      loadSettings: ACTIONS.LOAD_SETTINGS,
-      loadCacheVersion: ACTIONS.LOAD_CACHE_VERSION
-    })
-  },
   mounted () {
-    this.loadSettings({version: 'draft'})
-    this.loadCacheVersion()
-    // this.$storybridge(() => {
-    //   const storyblokInstance = new StoryblokBridge()
+    if (window.location.search.includes('_storyblok')) {
+      this.$storybridge(() => {
+        const { StoryblokBridge } = window
+        const storyblokInstance = new StoryblokBridge()
 
-    //   storyblokInstance.on(['input', 'published', 'change'], (event) => {
-    //     if (event.action === 'input') {
-    //       if (event.story.id === this.story.id) {
-    //         this.story.content = event.story.content
-    //       }
-    //     } else {
-    //       this.$nuxt.$router.go({
-    //         path: this.$nuxt.$router.currentRoute,
-    //         force: true,
-    //       })
-    //     }
-    //   })
-    // }, (error) => {
-    //   console.error(error)
-    // })
+        storyblokInstance.on(['input', 'published', 'change'], (event) => {
+          if (event.action === 'input') {
+            if (event.story.id === this.story.id) {
+              this.story.content = event.story.content
+            }
+          } else {
+            this.$nuxt.$router.go({
+              path: this.$nuxt.$router.currentRoute,
+              force: true,
+            })
+          }
+        })
+      }, (error) => {
+        // eslint-disable-next-line no-console
+        console.error(error)
+      })
+    }
   }
 }
 </script>
