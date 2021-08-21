@@ -17,7 +17,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.9/css/all.css' },
-      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' },
+      { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' }
     ]
   },
@@ -46,6 +46,13 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    // https://github.com/hpfahl/storyblok-nuxt-routes
+    ['storyblok-nuxt-routes', {
+      accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
+      contentTypes: 'page,article',
+      resolveLinks: 'url',
+      resolveRelations: 'page.author',
+    }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -65,6 +72,10 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  build: {},
+
+  generate: {
+    fallback: true
+    // crawler: false
   }
 }

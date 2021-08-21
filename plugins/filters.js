@@ -20,6 +20,10 @@ Vue.filter('dashify', function (value) {
   return 'blok-' + dashified
 })
 
+/**
+ * Implode an array of strings into a single string, joined by 'separator'
+ * Used for styles etc.
+ */
 Vue.filter('implode', (value = '', separator = ' ') => {
   if (!Array.isArray(value)) return value
   return value.join(separator)
