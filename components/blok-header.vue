@@ -1,10 +1,10 @@
 <template>
-  <header v-editable="blok" :class="blok.style | glue">
-    <div class="container" :class="blok.container_style | glue">
-      <nav class="navbar" :class="blok.navbar_style | glue">
+  <header v-editable="blok" :class="blok.style | implode">
+    <div class="container" :class="blok.container_style | implode">
+      <nav class="navbar" :class="blok.navbar_style | implode">
         <nuxt-link
           v-if="blok.logo"
-          :class="blok.logo_style | glue"
+          :class="blok.logo_style | implode"
           :to="`/${blok.logo_link.cached_url}`"
         >
           <img :src="blok.logo" :height="blok.logo_height" alt="Logo" />
@@ -31,7 +31,7 @@
           <ul
             v-if="blok.nav_links && blok.nav_links.length"
             class="navbar-nav"
-            :class="blok.main_nav_style | glue"
+            :class="blok.main_nav_style | implode"
           >
             <component
               :is="link.component | dashify"

@@ -2,7 +2,7 @@
   <img v-editable="blok"
        :alt="blok.alt_text"
        :height="blok.height"
-       :class="blok.style | glue"
+       :class="blok.style | implode"
        :src="blok.image || '//placehold.it/300x300'" />
 </template>
 

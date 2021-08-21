@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" :class="blok.style | glue" v-html="markdownText"></div>
+  <div v-editable="blok" :class="blok.style | implode" v-html="markdownText"></div>
 </template>
 
 <script>

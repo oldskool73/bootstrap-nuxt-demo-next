@@ -1,5 +1,5 @@
 <template>
-  <ul v-editable="blok" class="nav" :class="blok.style | glue">
+  <ul v-editable="blok" class="nav" :class="blok.style | implode">
     <component
       :is="body.component | dashify"
       v-for="body in blok.body"

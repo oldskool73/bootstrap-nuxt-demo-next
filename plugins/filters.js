@@ -20,7 +20,7 @@ Vue.filter('dashify', function (value) {
   return 'blok-' + dashified
 })
 
-Vue.filter('glue', (value = "", glue = ' ') => {
+Vue.filter('implode', (value = '', separator = ' ') => {
   if (!Array.isArray(value)) return value
-  return value.join(glue)
+  return value.join(separator)
 })

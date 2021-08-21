@@ -1,5 +1,5 @@
 <template>
-  <header v-editable="blok" :class="blok.style | glue">
+  <header v-editable="blok" :class="blok.style | implode">
     <div class="container">
       <nav class="navbar navbar-expand-md no-gutters">
         <template v-if="blok.logo_in_middle">
@@ -28,7 +28,7 @@
             <ul
               v-if="blok.nav_links && blok.nav_links.length"
               class="navbar-nav"
-              :class="blok.main_nav_style | glue"
+              :class="blok.main_nav_style | implode"
             >
               <component
                 :is="link.component | dashify"
@@ -83,7 +83,7 @@
             <ul
               v-if="blok.nav_links && blok.nav_links.length"
               class="navbar-nav"
-              :class="blok.main_nav_style | glue"
+              :class="blok.main_nav_style | implode"
             >
               <component
                 :is="link.component | dashify"

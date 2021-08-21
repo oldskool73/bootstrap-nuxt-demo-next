@@ -2,12 +2,12 @@
   <component
     :is="blok.is_inline ? 'span' : 'p'"
     v-editable="blok"
-    :class="blok.paragraph_style | glue"
+    :class="blok.paragraph_style | implode"
   >
     <a
       :href="blok.link.cached_url"
       class="btn"
-      :class="blok.style | glue"
+      :class="blok.style | implode"
       target="_blank"
     >
       {{ blok.text }}

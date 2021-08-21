@@ -1,5 +1,5 @@
 <template>
-  <footer v-editable="blok" class="fdb-block" :class="blok.style | glue">
+  <footer v-editable="blok" class="fdb-block" :class="blok.style | implode">
     <div class="container">
       <component
         :is="body.component | dashify"

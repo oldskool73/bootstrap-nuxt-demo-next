@@ -2,11 +2,11 @@
   <section
     v-editable="blok"
     class="fdb-block"
-    :class="blok.section_style | glue"
+    :class="blok.section_style | implode"
     :style="{ backgroundImage: `url(${blok.background})` }"
   >
-    <div class="container" :class="blok.container_style | glue">
-      <div class="row" :class="blok.row_style | glue">
+    <div class="container" :class="blok.container_style | implode">
+      <div class="row" :class="blok.row_style | implode">
         <div
           v-if="blok.image && blok.image_position == 'left'"
           class="col-12 col-sm-6"
