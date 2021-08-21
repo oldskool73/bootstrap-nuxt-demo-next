@@ -255,16 +255,15 @@ header {
   background-color: $white;
 
   .navbar-nav {
-    a.nav-link {
-      color: #777;
+    .nav-link a {
+        color: #777;
 
-      &:hover {
-        color: $primary-color;
-      }
+        &:hover {
+          color: $primary-color;
+        }
     }
-
     .active {
-      a.nav-link {
+      .nav-link a {
         color: $font-color;
       }
     }
@@ -276,7 +275,7 @@ header {
 
   &.bg-dark {
     .navbar-nav {
-      a.nav-link {
+      .nav-link a {
         color: #dcdcdc;
 
         &:hover {
@@ -285,7 +284,7 @@ header {
       }
 
       .active {
-        a.nav-link {
+        .nav-link a {
           color: $white;
         }
       }

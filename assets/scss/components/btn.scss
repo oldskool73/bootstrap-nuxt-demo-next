@@ -1,3 +1,9 @@
+
+.btn,
+.btn > a {
+  color: $btn-text-color;
+}
+
 .btn {
   padding: $btn-padding;
   background-color: $btn-bg-color;

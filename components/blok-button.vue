@@ -4,14 +4,13 @@
     v-editable="blok"
     :class="blok.paragraph_style | implode"
   >
-    <a
-      :href="blok.link.cached_url"
+    <link-fragment
       class="btn"
       :class="blok.style | implode"
-      target="_blank"
+      :blok="blok.link"
     >
       {{ blok.text }}
-    </a>
+    </link-fragment>
   </component>
 </template>
 
