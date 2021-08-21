@@ -54,7 +54,7 @@ export default {
     this.$storyapi
       .get(`cdn/stories/${this.blok.author.id}`, {
         find_by: 'uuid',
-        cv: this.$store.state.cacheVersion,
+        cv: this.$store.state.storyblok.cacheVersion,
       })
       .then((res) => {
         this.author = res.data.story
@@ -67,7 +67,7 @@ export default {
     this.$storyapi
       .get('cdn/stories', {
         starts_with: 'categories/',
-        cv: this.$store.state.cacheVersion,
+        cv: this.$store.state.storyblok.cacheVersion,
       })
       .then((res) => {
         this.categories = res.data.stories

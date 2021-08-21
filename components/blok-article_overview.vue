@@ -79,7 +79,7 @@ export default {
     this.$storyapi
       .get('cdn/stories', {
         starts_with: 'categories/',
-        cv: this.$store.state.cacheVersion,
+        cv: this.$store.state.storyblok.cacheVersion,
       })
       .then((res) => {
         this.categories = res.data.stories
@@ -92,7 +92,7 @@ export default {
     this.$storyapi
       .get('cdn/stories', {
         starts_with: 'authors/',
-        cv: this.$store.state.cacheVersion,
+        cv: this.$store.state.storyblok.cacheVersion,
       })
       .then((res) => {
         this.authors = res.data.stories
@@ -108,7 +108,7 @@ export default {
       .get('cdn/stories', {
         starts_with: 'article/',
         is_startpage: '0',
-        cv: this.$store.state.cacheVersion,
+        cv: this.$store.state.storyblok.cacheVersion,
       })
       .then((res) => {
         this.articles = res.data.stories

@@ -56,7 +56,7 @@ export default {
     return loadData({
       version,
       api: context.app.$storyapi,
-      cacheVersion: context.store.state.cacheVersion,
+      cacheVersion: context.store.state.storyblok.cacheVersion,
       errorCallback: context.error,
       path
     })

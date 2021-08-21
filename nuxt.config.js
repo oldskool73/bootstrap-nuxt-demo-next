@@ -49,9 +49,9 @@ export default {
     // https://github.com/hpfahl/storyblok-nuxt-routes
     ['storyblok-nuxt-routes', {
       accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
-      contentTypes: 'page,article',
-      resolveLinks: 'url',
-      resolveRelations: 'page.author',
+      // contentTypes: 'page,article',
+      // resolveLinks: 'url',
+      // resolveRelations: 'page.author',
     }],
   ],
 
