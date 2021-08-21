@@ -13,7 +13,7 @@
             :is="button.component | dashify"
             v-for="button in blok.buttons"
             :key="button._uid"
-            :blok="blok"
+            :blok="button"
           ></component>
         </div>
       </div>

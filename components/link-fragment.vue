@@ -1,9 +1,9 @@
 <template>
   <span>
-    <nuxt-link v-if="linkType==='story'" :to="`/${blok.cached_url}`">
+    <nuxt-link v-if="linkType==='story'" :to="`/${cachedUrl}`">
       <slot />
     </nuxt-link>
-    <a v-else :href="blok.cached_url" target="_blank">
+    <a v-else :href="cachedUrl" target="_blank">
       <slot />
     </a>
   </span>
@@ -18,8 +18,11 @@
 export default {
   props: ['blok'],
   computed: {
+    cachedUrl() {
+      return this?.blok?.cached_url || '';
+    },
     linkType() {
-      return this.blok?.linktype
+      return this?.blok?.linktype || ''
     }
   },
 }
