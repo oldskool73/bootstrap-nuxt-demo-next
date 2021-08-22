@@ -55,7 +55,8 @@ export default {
       // contentTypes: 'page,article',
       // resolveLinks: 'url',
       // resolveRelations: 'page.author',
-      exclude: [ '^\/home' ]
+      // exclude: [ '^\/home' ]
+      routeRealPath: true
     }],
   ],
 
@@ -91,7 +92,7 @@ export default {
   generate: {
     fallback: true,
     crawler: false,
-    routes: ['/']
+    // routes: ['/']
   },
 
   // Storyblok config
