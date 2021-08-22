@@ -35,7 +35,7 @@ export default {
   // Router setup : https://nuxtjs.org/docs/2.x/directory-structure/middleware#router-middleware
   router: {
     middleware: [
-      'languageDetection'
+      'storyblokConfigure'
     ]
   },
 
