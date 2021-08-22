@@ -48,7 +48,6 @@ export default {
     '@nuxtjs/eslint-module',
     // https://github.com/hpfahl/storyblok-nuxt-routes
     ['storyblok-nuxt-routes', {
-      accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
       // contentTypes: 'page,article',
       // resolveLinks: 'url',
       // resolveRelations: 'page.author',
@@ -60,22 +59,38 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://github.com/storyblok/storyblok-nuxt
-    [
-      'storyblok-nuxt', {
-        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
-        cacheProvider: 'memory'
-      }
-    ],
+    'storyblok-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        chunks: 'async',
+      }
+    },
+    splitChunks: {
+      pages: false,
+      vendor: true,
+      commons: true,
+      runtime: true,
+      layouts: false
+    },
+  },
 
+  // Generat config: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate
   generate: {
     fallback: true
     // crawler: false
-  }
+  },
+
+  // Storyblok config
+  storyblok: {
+    accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
+    cacheProvider: 'memory'
+  },
 }
