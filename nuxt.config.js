@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -29,13 +31,15 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/filters'
+    '~/plugins/filters',
+    '~/plugins/storyblokHelpers'
   ],
 
   // Router setup : https://nuxtjs.org/docs/2.x/directory-structure/middleware#router-middleware
   router: {
     middleware: [
-      'storyblokConfigure'
+      'storyblokConfigure',
+      'redirectHome'
     ]
   },
 
@@ -51,6 +55,7 @@ export default {
       // contentTypes: 'page,article',
       // resolveLinks: 'url',
       // resolveRelations: 'page.author',
+      exclude: [ '^\/home' ]
     }],
   ],
 
@@ -84,8 +89,9 @@ export default {
 
   // Generat config: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate
   generate: {
-    fallback: true
-    // crawler: false
+    fallback: true,
+    crawler: false,
+    routes: ['/']
   },
 
   // Storyblok config
@@ -93,4 +99,21 @@ export default {
     accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
     cacheProvider: 'memory'
   },
+
+  // hooks: {
+  //   generate: {
+  //     route({ route, setPayload }) {
+  //       console.log('--', route)
+  //     },
+  //     page({ route, path, html }) {
+  //       console.log('>>', route, path) //, html)
+  //     },
+  //     routeCreated({ route, path, errors }) {
+  //       console.log('++', route, path, errors)
+  //     },
+  //     routeFailed({ route, errors }) {
+  //       console.error('!!', route, errors)
+  //     }
+  //   }
+  // }
 }
